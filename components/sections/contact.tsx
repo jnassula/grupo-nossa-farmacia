@@ -40,7 +40,7 @@ export function Contact() {
   };
 
   return (
-    <AnimatedSection id="contact" className="bg-background/85 backdrop-blur-md relative">
+    <AnimatedSection id="contact" className="bg-gradient-to-b from-secondary/30 to-background relative">
       <DecorativeShapes variant="simple" />
       <div className="relative max-w-7xl mx-auto">
         <motion.div

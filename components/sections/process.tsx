@@ -14,7 +14,7 @@ export function Process() {
   });
 
   return (
-    <AnimatedSection id="process" className="bg-background/85 backdrop-blur-md">
+    <AnimatedSection id="process" className="bg-background">
       <div ref={containerRef} className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
