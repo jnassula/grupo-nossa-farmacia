@@ -16,7 +16,7 @@ export function Advantages() {
   };
 
   return (
-    <AnimatedSection id="advantages" className="bg-secondary/50 relative">
+    <AnimatedSection id="advantages" className="bg-secondary/70 backdrop-blur-md relative">
       <DecorativeShapes variant="simple" />
       <div className="relative max-w-7xl mx-auto">
         <motion.div

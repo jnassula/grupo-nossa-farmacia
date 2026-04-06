@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
+import { ScrollVideo } from "@/components/shared/scroll-video";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -72,8 +73,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="https://nossafarmacia.vtexassets.com/assets/vtex.file-manager-graphql/images/b024c86e-9f88-4f27-b201-a37ce4b1f88d___a54a39ce545532ee7bd6250d74466acb.svg" />
       </head>
       <body className="min-h-screen flex flex-col">
+        <ScrollVideo />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 relative z-0">{children}</main>
         <Footer />
       </body>
     </html>

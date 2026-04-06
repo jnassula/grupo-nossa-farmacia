@@ -8,7 +8,7 @@ import { content } from "@/lib/content";
 
 export function About() {
   return (
-    <AnimatedSection id="about" className="bg-background">
+    <AnimatedSection id="about" className="bg-background/85 backdrop-blur-md">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"

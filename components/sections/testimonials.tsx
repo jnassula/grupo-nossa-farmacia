@@ -24,7 +24,7 @@ export function Testimonials() {
   };
 
   return (
-    <AnimatedSection id="testimonials" className="bg-background relative overflow-hidden">
+    <AnimatedSection id="testimonials" className="bg-background/85 backdrop-blur-md relative overflow-hidden">
       {/* Floating shape outlines — center area */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div

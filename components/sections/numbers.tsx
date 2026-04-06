@@ -12,8 +12,8 @@ export function Numbers() {
   return (
     <AnimatedSection
       id="numbers"
-      className="bg-foreground text-background relative"
-      style={{ background: "var(--foreground)" }}
+      className="bg-foreground/90 text-background relative backdrop-blur-md"
+      style={{ background: "rgba(0,0,0,0.85)" }}
     >
       <DecorativeShapes variant="dark" />
       <div className="relative max-w-7xl mx-auto">

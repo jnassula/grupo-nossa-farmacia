@@ -17,7 +17,7 @@ export function FAQ() {
   };
 
   return (
-    <AnimatedSection id="faq" className="bg-background">
+    <AnimatedSection id="faq" className="bg-background/85 backdrop-blur-md">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial="hidden"

@@ -1,0 +1,91 @@
+"use client";
+
+import { useEffect, useRef, useState, useCallback } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
+
+const FRAME_COUNT = 40;
+const BASE_PATH = process.env.NODE_ENV === "production" ? "/grupo-nossa-farmacia" : "";
+const FRAME_PREFIX = `${BASE_PATH}/videos/ezgif-frame-`;
+
+function getFramePath(index: number): string {
+  const num = String(index + 1).padStart(3, "0");
+  return `${FRAME_PREFIX}${num}.jpg`;
+}
+
+export function ScrollVideo() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+
+  const drawFrame = useCallback((frameIndex: number) => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    const img = imagesRef.current[frameIndex];
+    if (!canvas || !ctx || !img) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+    const w = img.width * scale;
+    const h = img.height * scale;
+    const x = (canvas.width - w) / 2;
+    const y = (canvas.height - h) / 2;
+
+    ctx.drawImage(img, x, y, w, h);
+  }, []);
+
+  // Preload all frames
+  useEffect(() => {
+    let loaded = 0;
+    const images: HTMLImageElement[] = [];
+
+    for (let i = 0; i < FRAME_COUNT; i++) {
+      const img = new Image();
+      img.src = getFramePath(i);
+      img.onload = () => {
+        loaded++;
+        if (loaded === FRAME_COUNT) {
+          imagesRef.current = images;
+          setImagesLoaded(true);
+          drawFrame(0);
+        }
+      };
+      images.push(img);
+    }
+  }, [drawFrame]);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (!imagesLoaded) return;
+    const frameIndex = Math.min(
+      FRAME_COUNT - 1,
+      Math.floor(latest * FRAME_COUNT)
+    );
+    drawFrame(frameIndex);
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (!imagesLoaded) return;
+      const progress = scrollYProgress.get();
+      const frameIndex = Math.min(
+        FRAME_COUNT - 1,
+        Math.floor(progress * FRAME_COUNT)
+      );
+      drawFrame(frameIndex);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [imagesLoaded, scrollYProgress, drawFrame]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 w-full h-full -z-10"
+      aria-hidden="true"
+    />
+  );
+}

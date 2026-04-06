@@ -47,7 +47,7 @@ export function Simulator() {
   };
 
   return (
-    <AnimatedSection id="simulator" className="bg-secondary/30 relative">
+    <AnimatedSection id="simulator" className="bg-secondary/60 backdrop-blur-md relative">
       <DecorativeShapes variant="simple" />
       <div className="relative max-w-6xl mx-auto">
         <motion.div
