@@ -16,8 +16,7 @@ export function Advantages() {
   };
 
   return (
-    <AnimatedSection id="advantages" className="bg-secondary/70 backdrop-blur-md relative">
-      <DecorativeShapes variant="simple" />
+    <AnimatedSection id="advantages" className="bg-black/40 text-white relative">
       <div className="relative max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -29,7 +28,7 @@ export function Advantages() {
           <span className="text-primary font-semibold tracking-wide uppercase text-sm">
             {content.advantages.title}
           </span>
-          <div className="mt-4"><TextReveal text={content.advantages.heading} /></div>
+          <div className="mt-4"><TextReveal text={content.advantages.heading} className="text-white" /></div>
         </motion.div>
 
         <motion.div
@@ -41,19 +40,19 @@ export function Advantages() {
         >
           {content.advantages.items.map((item, index) => (
             <motion.div key={item.title} variants={fadeInUp} custom={index * 0.1}>
-              <Card className="h-full group hover:-translate-y-1 transition-transform duration-300 border-border/50 hover:border-primary/30">
+              <Card className="h-full group hover:-translate-y-1 transition-transform duration-300 bg-white/10 border-white/20 hover:border-primary/30">
                 <CardHeader>
                   <motion.div
-                    className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+                    className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors"
                     whileHover={{ scale: 1.05, rotate: 2 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     {getIcon(item.icon)}
                   </motion.div>
-                  <CardTitle className="text-xl">{item.title}</CardTitle>
+                  <CardTitle className="text-xl text-white">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{item.desc}</p>
+                  <p className="text-white/70">{item.desc}</p>
                 </CardContent>
               </Card>
             </motion.div>

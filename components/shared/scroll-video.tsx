@@ -12,12 +12,19 @@ function getFramePath(index: number): string {
   return `${FRAME_PREFIX}${num}.jpg`;
 }
 
-export function ScrollVideo() {
+export function ScrollVideo({
+  containerRef,
+}: {
+  containerRef: React.RefObject<HTMLDivElement>;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
   const drawFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current;
@@ -37,7 +44,6 @@ export function ScrollVideo() {
     ctx.drawImage(img, x, y, w, h);
   }, []);
 
-  // Preload all frames
   useEffect(() => {
     let loaded = 0;
     const images: HTMLImageElement[] = [];
@@ -84,7 +90,8 @@ export function ScrollVideo() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full -z-10"
+      className="sticky top-0 w-full h-screen -z-10"
+      style={{ marginBottom: "-100vh" }}
       aria-hidden="true"
     />
   );

@@ -8,7 +8,7 @@ import { content } from "@/lib/content";
 
 export function About() {
   return (
-    <AnimatedSection id="about" className="bg-background/85 backdrop-blur-md">
+    <AnimatedSection id="about" className="bg-black/40 text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -22,8 +22,8 @@ export function About() {
             <span className="text-primary font-semibold tracking-wide uppercase text-sm">
               {content.about.title}
             </span>
-            <TextReveal text={content.about.heading} />
-            <p className="text-lg">{content.about.body}</p>
+            <TextReveal text={content.about.heading} className="text-white" />
+            <p className="text-lg text-white/80">{content.about.body}</p>
             
             {/* Values Grid */}
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
@@ -32,10 +32,10 @@ export function About() {
                   key={value.title}
                   variants={fadeInUp}
                   custom={index * 0.1}
-                  className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
+                  className="p-4 rounded-xl bg-white/10 border border-white/20 hover:border-primary/30 transition-colors"
                 >
-                  <h4 className="font-semibold text-foreground mb-1">{value.title}</h4>
-                  <p className="text-sm text-muted-foreground">{value.desc}</p>
+                  <h4 className="font-semibold text-white mb-1">{value.title}</h4>
+                  <p className="text-sm text-white/70">{value.desc}</p>
                 </motion.div>
               ))}
             </div>
