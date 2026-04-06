@@ -4,12 +4,18 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
 const FRAME_COUNT = 40;
-const BASE_PATH = process.env.NODE_ENV === "production" ? "/grupo-nossa-farmacia" : "";
-const FRAME_PREFIX = `${BASE_PATH}/videos/ezgif-frame-`;
 
-function getFramePath(index: number): string {
+function getBasePath(): string {
+  if (typeof window === "undefined") return "";
+  const path = window.location.pathname;
+  // If running on GitHub Pages under /grupo-nossa-farmacia/
+  if (path.startsWith("/grupo-nossa-farmacia")) return "/grupo-nossa-farmacia";
+  return "";
+}
+
+function getFramePath(basePath: string, index: number): string {
   const num = String(index + 1).padStart(3, "0");
-  return `${FRAME_PREFIX}${num}.jpg`;
+  return `${basePath}/videos/ezgif-frame-${num}.jpg`;
 }
 
 export function ScrollVideo({
@@ -45,12 +51,13 @@ export function ScrollVideo({
   }, []);
 
   useEffect(() => {
+    const basePath = getBasePath();
     let loaded = 0;
     const images: HTMLImageElement[] = [];
 
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
-      img.src = getFramePath(i);
+      img.src = getFramePath(basePath, i);
       img.onload = () => {
         loaded++;
         if (loaded === FRAME_COUNT) {
