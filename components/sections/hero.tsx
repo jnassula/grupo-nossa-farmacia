@@ -8,7 +8,8 @@ import { content } from "@/lib/content";
 import { DecorativeShapes } from "@/components/shared/decorative-shapes";
 
 const FRAME_COUNT = 40;
-const FRAME_PREFIX = "/videos/ezgif-frame-";
+const BASE_PATH = process.env.NODE_ENV === "production" ? "/grupo-nossa-farmacia" : "";
+const FRAME_PREFIX = `${BASE_PATH}/videos/ezgif-frame-`;
 
 function getFramePath(index: number): string {
   const num = String(index + 1).padStart(3, "0");
