@@ -57,7 +57,7 @@ export function Navbar() {
             <img
               src="https://nossafarmacia.vtexassets.com/assets/vtex.file-manager-graphql/images/f432f301-b5fa-4453-aa24-22ea02396e16___13e59f7056915bc23b198375758778f6.png"
               alt="Grupo Nossa Farmácia"
-              className="h-10 w-auto transition-transform group-hover:scale-105"
+              className="h-16 w-auto transition-transform group-hover:scale-105"
               loading="eager"
             />
           </Link>
@@ -70,10 +70,10 @@ export function Navbar() {
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={cn(
-                  "px-3 py-2 text-sm font-medium transition-colors relative group",
+                  "px-3 py-2 text-sm font-bold transition-colors relative group [text-shadow:_0_1px_3px_rgba(0,0,0,0.3)]",
                   scrolled
-                    ? "text-muted-foreground hover:text-foreground"
-                    : "text-white/80 hover:text-white"
+                    ? "text-foreground hover:text-white [text-shadow:_0_1px_2px_rgba(0,0,0,0.1)]"
+                    : "text-white hover:text-white"
                 )}
               >
                 {link.label}
