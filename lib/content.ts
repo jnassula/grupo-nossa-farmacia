@@ -1,3 +1,5 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const content = {
   hero: {
     headline: "O futuro da farmácia começa aqui.",
@@ -68,19 +70,19 @@ export const content = {
         quote: "Aderir ao Grupo Nossa Farmácia foi o melhor investimento que fizemos. O apoio na digitalização e nas campanhas de marketing aumentou significativamente o nosso tráfego e fidelização.",
         author: "Dra. Catarina Mendes",
         role: "Farmácia Viva",
-        logo: "/images/viva.png",
+        logo: `${basePath}/images/viva.png`,
       },
       {
         quote: "O poder de negociação do grupo permitiu-nos melhorar as margens sem comprometer a qualidade. E a formação da equipa fez toda a diferença no atendimento.",
         author: "Dr. João Silva",
         role: "Farmácia Nova da Maia",
-        logo: "/images/novadamaia.png",
+        logo: `${basePath}/images/novadamaia.png`,
       },
       {
         quote: "Sentimo-nos parte de uma rede que valoriza a farmácia de proximidade. O suporte operacional é excecional e está sempre disponível quando precisamos.",
         author: "Dra. Ana Rodrigues",
         role: "Farmácia Normal",
-        logo: "/images/normal.png",
+        logo: `${basePath}/images/normal.png`,
       },
     ],
   },
@@ -142,7 +144,7 @@ export const content = {
         tagline: "Acompanhamento personalizado",
         desc: "O departamento comercial acompanha as farmácias do grupo, fornecendo suporte ao nível da análise de portfólio, gestão de compras e estratégia de dinamização de ponto de venda. Mensalmente, os consultores agendam uma reunião com a farmácia, garantindo um acompanhamento personalizado que vai de encontro aos objetivos e necessidades de cada farmácia.",
         highlights: ["Análise de portfólio", "Gestão de compras", "Consultoria mensal"],
-        image: "/images/sales.png",
+        image: `${basePath}/images/sales.png`,
       },
       {
         icon: "BarChart3",
@@ -150,7 +152,7 @@ export const content = {
         tagline: "Dados que guiam decisões",
         desc: "Plataforma de business intelligence com dashboards em tempo real. Analise vendas, margens, rotação de stock e comportamento de clientes para tomar decisões informadas e maximizar a rentabilidade.",
         highlights: ["Dashboards em tempo real", "Análise de margens e stock", "Relatórios personalizados"],
-        image: "/images/analytics.png",
+        image: `${basePath}/images/analytics.png`,
       },
       {
         icon: "BrainCircuit",
@@ -158,7 +160,7 @@ export const content = {
         tagline: "Inteligência artificial ao serviço da farmácia",
         desc: "Assistente inteligente que automatiza tarefas operacionais, otimiza encomendas e antecipa tendências de consumo. A IA que trabalha por si enquanto cuida dos seus clientes.",
         highlights: ["Previsão de procura", "Otimização de encomendas", "Automação operacional"],
-        image: "/images/nossa-ai.png",
+        image: `${basePath}/images/nossa-ai.png`,
       },
       {
         icon: "Megaphone",
@@ -166,7 +168,7 @@ export const content = {
         tagline: "Marketing que converte",
         desc: "Serviço completo de marketing digital e tradicional. Campanhas segmentadas, gestão de redes sociais, design de materiais promocionais e estratégias de fidelização adaptadas à sua farmácia.",
         highlights: ["Campanhas segmentadas", "Gestão de redes sociais", "Programas de fidelização"],
-        image: "/images/mkt.png",
+        image: `${basePath}/images/mkt.png`,
       },
       {
         icon: "ShoppingCart",
@@ -174,7 +176,7 @@ export const content = {
         tagline: "nossafarmacia.pt",
         desc: "Loja online integrada com o seu stock físico. Venda 24h por dia com entrega em todo o país. Gestão centralizada de catálogo, preços e promoções numa plataforma otimizada para conversão.",
         highlights: ["Loja online 24/7", "Stock integrado", "Entrega nacional"],
-        image: "/images/ecommerce.png",
+        image: `${basePath}/images/ecommerce.png`,
       },
       {
         icon: "Zap",
@@ -182,7 +184,7 @@ export const content = {
         tagline: "Bolt Food, Uber Eats & Glovo",
         desc: "Entrega ultrarrápida através das principais plataformas de delivery. Chegue aos seus clientes em minutos com produtos de saúde, bem-estar e parafarmácia onde quer que estejam.",
         highlights: ["Entrega em minutos", "3 plataformas integradas", "Novos clientes digitais"],
-        image: "/images/qcommerce.png",
+        image: `${basePath}/images/qcommerce.png`,
       },
     ],
   },

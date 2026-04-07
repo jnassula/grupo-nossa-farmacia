@@ -4,16 +4,9 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 
 const FRAME_COUNT = 40;
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-function getBasePath(): string {
-  if (typeof window === "undefined") return "";
-  const path = window.location.pathname;
-  // If running on GitHub Pages under /grupo-nossa-farmacia/
-  if (path.startsWith("/grupo-nossa-farmacia")) return "/grupo-nossa-farmacia";
-  return "";
-}
-
-function getFramePath(basePath: string, index: number): string {
+function getFramePath(index: number): string {
   const num = String(index + 1).padStart(3, "0");
   return `${basePath}/videos/ezgif-frame-${num}.jpg`;
 }
@@ -51,21 +44,23 @@ export function ScrollVideo({
   }, []);
 
   useEffect(() => {
-    const basePath = getBasePath();
-    let loaded = 0;
+    let completed = 0;
     const images: HTMLImageElement[] = [];
+
+    const onComplete = () => {
+      completed++;
+      if (completed === FRAME_COUNT) {
+        imagesRef.current = images;
+        setImagesLoaded(true);
+        drawFrame(0);
+      }
+    };
 
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
-      img.src = getFramePath(basePath, i);
-      img.onload = () => {
-        loaded++;
-        if (loaded === FRAME_COUNT) {
-          imagesRef.current = images;
-          setImagesLoaded(true);
-          drawFrame(0);
-        }
-      };
+      img.src = getFramePath(i);
+      img.onload = onComplete;
+      img.onerror = onComplete;
       images.push(img);
     }
   }, [drawFrame]);
