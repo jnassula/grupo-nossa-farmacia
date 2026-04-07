@@ -17,9 +17,8 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/30" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-24 pb-16">
+    <section className="relative h-[100dvh] flex items-center justify-center">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-24 pb-16">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -46,12 +45,12 @@ export function Hero() {
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
           >
             <Button
               size="lg"
               onClick={() => handleNavScroll("#about")}
-              className="min-w-[180px]"
+              className="w-full sm:w-auto sm:min-w-[180px]"
             >
               {content.hero.ctaPrimary}
             </Button>
@@ -59,7 +58,7 @@ export function Hero() {
               variant="outline"
               size="lg"
               onClick={() => handleNavScroll("#contact")}
-              className="min-w-[180px] border-2 border-white bg-white text-primary hover:bg-white/90"
+              className="w-full sm:w-auto sm:min-w-[180px] border-2 border-white bg-white text-primary hover:bg-white/90"
             >
               {content.hero.ctaSecondary}
             </Button>

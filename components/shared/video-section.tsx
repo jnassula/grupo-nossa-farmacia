@@ -9,6 +9,7 @@ export function VideoSection({ children }: { children: React.ReactNode }) {
   return (
     <div ref={containerRef} className="relative">
       <ScrollVideo containerRef={containerRef} />
+      <div className="absolute inset-0 bg-black/30 z-[1]" />
       <div className="relative z-10">{children}</div>
     </div>
   );

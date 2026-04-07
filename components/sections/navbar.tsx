@@ -45,9 +45,11 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled || mobileOpen
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm"
-          : "bg-transparent"
+        mobileOpen
+          ? "bg-black/30 backdrop-blur-xl border-b border-white/10 shadow-sm"
+          : scrolled
+            ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm"
+            : "bg-transparent"
       )}
     >
       <nav className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -99,7 +101,7 @@ export function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               className={cn(
                 "lg:hidden p-2 rounded-lg transition-colors",
-                scrolled || mobileOpen ? "hover:bg-muted text-foreground" : "text-white hover:bg-white/10"
+                mobileOpen ? "text-white hover:bg-white/10" : scrolled ? "hover:bg-muted text-foreground" : "text-white hover:bg-white/10"
               )}
               aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             >
@@ -117,7 +119,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 overflow-hidden"
+            className="lg:hidden overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
@@ -125,7 +127,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="block px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-colors"
+                  className="block px-4 py-3 text-base font-bold text-white hover:text-primary hover:bg-white/10 rounded-lg transition-colors"
                 >
                   {link.label}
                 </Link>

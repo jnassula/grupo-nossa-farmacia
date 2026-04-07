@@ -16,7 +16,7 @@ export function Advantages() {
   };
 
   return (
-    <AnimatedSection id="advantages" className="bg-black/30 text-white relative">
+    <AnimatedSection id="advantages" className="text-white relative">
       <div className="relative max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
