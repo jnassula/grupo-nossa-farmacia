@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const FRAME_COUNT = 40;
+const FRAME_COUNT = 192;
 
 function getBasePath(): string {
   if (typeof window === "undefined") return "";
