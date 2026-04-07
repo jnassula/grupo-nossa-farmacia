@@ -8,7 +8,7 @@ import { content } from "@/lib/content";
 
 export function About() {
   return (
-    <AnimatedSection id="about" className="bg-black/40 text-white">
+    <AnimatedSection id="about" className="bg-black/30 text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -32,7 +32,7 @@ export function About() {
                   key={value.title}
                   variants={fadeInUp}
                   custom={index * 0.1}
-                  className="p-4 rounded-xl bg-white/10 border border-white/20 hover:border-primary/30 transition-colors"
+                  className="p-4 rounded-xl bg-background/40 backdrop-blur-xl border border-border/30 hover:border-primary/30 transition-colors"
                 >
                   <h4 className="font-semibold text-white mb-1">{value.title}</h4>
                   <p className="text-sm text-white/70">{value.desc}</p>

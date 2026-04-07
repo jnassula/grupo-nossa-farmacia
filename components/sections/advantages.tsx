@@ -16,7 +16,7 @@ export function Advantages() {
   };
 
   return (
-    <AnimatedSection id="advantages" className="bg-black/40 text-white relative">
+    <AnimatedSection id="advantages" className="bg-black/30 text-white relative">
       <div className="relative max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -40,7 +40,7 @@ export function Advantages() {
         >
           {content.advantages.items.map((item, index) => (
             <motion.div key={item.title} variants={fadeInUp} custom={index * 0.1}>
-              <Card className="h-full group hover:-translate-y-1 transition-transform duration-300 bg-white/10 border-white/20 hover:border-primary/30">
+              <Card className="h-full group hover:-translate-y-1 transition-transform duration-300 bg-background/40 backdrop-blur-xl border-border/30 hover:border-primary/30">
                 <CardHeader>
                   <motion.div
                     className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors"

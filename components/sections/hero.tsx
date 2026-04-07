@@ -18,8 +18,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/45" />
-
+      <div className="absolute inset-0 bg-black/30" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-24 pb-16">
         <motion.div
           variants={staggerContainer}
