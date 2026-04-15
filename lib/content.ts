@@ -53,6 +53,22 @@ export const content = {
       },
     ],
   },
+  coverage: {
+    title: "Presença Nacional",
+    heading: "Do Minho ao Algarve, dos Açores à Madeira.",
+    subtitle: "Uma rede enraizada em Portugal, servindo comunidades de norte a sul, do continente às ilhas.",
+    regions: [
+      { name: "Norte", count: 120, gradient: "from-sky-500/15 to-blue-500/5", pinColor: "text-sky-400" },
+      { name: "Centro", count: 85, gradient: "from-emerald-500/15 to-teal-500/5", pinColor: "text-emerald-400" },
+      { name: "Lisboa", count: 110, gradient: "from-primary/20 to-accent/10", pinColor: "text-primary" },
+      { name: "Alentejo", count: 35, gradient: "from-amber-500/15 to-yellow-500/5", pinColor: "text-amber-400" },
+      { name: "Algarve", count: 30, gradient: "from-rose-500/15 to-pink-500/5", pinColor: "text-rose-400" },
+      { name: "Madeira", count: 12, gradient: "from-teal-500/15 to-cyan-500/5", pinColor: "text-teal-400" },
+      { name: "Açores", count: 8, gradient: "from-indigo-500/15 to-blue-500/5", pinColor: "text-indigo-400" },
+    ],
+    totalLabel: "Farmácias parceiras em Portugal",
+    footnote: "Cobertura contínua em crescimento, com novas adesões todos os meses.",
+  },
   numbers: {
     title: "O Nosso Impacto",
     stats: [

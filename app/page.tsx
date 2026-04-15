@@ -3,6 +3,7 @@ import { About } from "@/components/sections/about";
 import { Advantages } from "@/components/sections/advantages";
 import { VideoSection } from "@/components/shared/video-section";
 import { Services } from "@/components/sections/services";
+import { Coverage } from "@/components/sections/coverage";
 import { Simulator } from "@/components/sections/simulator";
 import { Numbers } from "@/components/sections/numbers";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -19,6 +20,7 @@ export default function Home() {
         <Advantages />
       </VideoSection>
       <Services />
+      <Coverage />
       <Simulator />
       <Numbers />
       <Testimonials />

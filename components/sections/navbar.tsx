@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Sobre Nós", href: "#about" },
   { label: "Vantagens", href: "#advantages" },
   { label: "Serviços", href: "#services" },
+  { label: "Cobertura", href: "#coverage" },
   { label: "Simulador", href: "#simulator" },
   { label: "Testemunhos", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
